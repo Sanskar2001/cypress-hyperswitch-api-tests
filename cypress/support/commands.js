@@ -26,17 +26,18 @@
 
 // commands.js or your custom support file
 import globalState from "../utils/State";
-import * as RequestBodyUtils from "../utils/RequestBodyUtils"
-import {publishableKey} from '../utils/Constants'
-
+import * as RequestBodyUtils from "../utils/RequestBodyUtils";
+import { baseUrl } from "../utils/Constants";
+const apiKey = Cypress.env("API_KEY");
+const publishableKey = Cypress.env("PUBLISHABLE_KEY");
 Cypress.Commands.add("createPaymentIntentTest", (request) => {
   cy.request({
     method: "POST",
-    url: "https://sandbox.hyperswitch.io/payments",
+    url: `${baseUrl}/payments`,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "api-key": "snd_c691ade6995743bd88c166ba509ff5da",
+      "api-key": apiKey,
     },
     body: request,
   }).then((response) => {
@@ -53,7 +54,7 @@ Cypress.Commands.add("paymentMethodsCallTest", (request) => {
 
   cy.request({
     method: "GET",
-    url: `https://sandbox.hyperswitch.io/account/payment_methods?client_secret=${clientSecret}`,
+    url: `${baseUrl}/account/payment_methods?client_secret=${clientSecret}`,
     headers: {
       "Content-Type": "application/json",
       "api-key": publishableKey,
@@ -71,12 +72,12 @@ Cypress.Commands.add("confirmCallTest", (confirmBody, testCardNo) => {
   const clientSecret = globalState.get("clientSecret");
   var paymentIntentID = clientSecret.split("_secret_")[0];
 
-  RequestBodyUtils.setCardNo(confirmBody,testCardNo)
-  RequestBodyUtils.setClientSecret(confirmBody,clientSecret)
+  RequestBodyUtils.setCardNo(confirmBody, testCardNo);
+  RequestBodyUtils.setClientSecret(confirmBody, clientSecret);
 
   cy.request({
     method: "POST",
-    url: `https://sandbox.hyperswitch.io/payments/${paymentIntentID}/confirm`,
+    url: `${baseUrl}/payments/${paymentIntentID}/confirm`,
     headers: {
       "Content-Type": "application/json",
       "api-key": publishableKey,

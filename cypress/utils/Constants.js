@@ -1,1 +1,1 @@
-export const publishableKey = "pk_snd_3b33cd9404234113804aa1accaabe22f";
+export const baseUrl="https://sandbox.hyperswitch.io"
