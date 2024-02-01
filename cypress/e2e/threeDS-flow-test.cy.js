@@ -7,7 +7,7 @@ describe("Card payment flow test", () => {
   });
 
   it("payment_methods-call-test", () => {
-    cy.paymentMethodsCallTest(createPaymentBody);
+    cy.paymentMethodsCallTest();
   });
 
   it("confirm-call-test", () => {

@@ -49,7 +49,7 @@ Cypress.Commands.add("createPaymentIntentTest", (request) => {
   });
 });
 
-Cypress.Commands.add("paymentMethodsCallTest", (request) => {
+Cypress.Commands.add("paymentMethodsCallTest", () => {
   const clientSecret = globalState.get("clientSecret");
 
   cy.request({
@@ -59,7 +59,6 @@ Cypress.Commands.add("paymentMethodsCallTest", (request) => {
       "Content-Type": "application/json",
       "api-key": publishableKey,
     },
-    body: request,
   }).then((response) => {
     expect(response.headers["content-type"]).to.include("application/json");
     expect(response.body).to.have.property("redirect_url");
