@@ -1,0 +1,46 @@
+{
+    "connector_type": "fiz_operations",
+    "connector_name": "stripe",
+    "business_country": "US",
+    "business_label": "default",
+    "connector_label": "first_stripe_connector",
+    "connector_account_details": {
+        "auth_type": "HeaderKey",
+        "api_key": "sk_test_51M7fTaD5R7gDAGffTMGlcCXwDVuImFXRY6HSzriQq9ahAq2nckBpLr6zjQCEyGvJc6uWxzylSLTR6L8shW2wlfZo00zOpCUh5b"
+    },
+    "test_mode": false,
+    "disabled": false,
+    "payment_methods_enabled": [
+        {
+            "payment_method": "card",
+            "payment_method_types": [
+                {
+                    "payment_method_type": "credit",
+                    "card_networks": [
+                        "Visa",
+                        "Mastercard"
+                    ],
+                    "minimum_amount": 1,
+                    "maximum_amount": 68607706,
+                    "recurring_enabled": false,
+                    "installment_payment_enabled": true
+                },
+                {
+                    "payment_method_type": "debit",
+                    "card_networks": [
+                        "Visa",
+                        "Mastercard"
+                    ],
+                    "minimum_amount": 1,
+                    "maximum_amount": 68607706,
+                    "recurring_enabled": false,
+                    "installment_payment_enabled": true
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "city": "NY",
+        "unit": "245"
+    }
+}

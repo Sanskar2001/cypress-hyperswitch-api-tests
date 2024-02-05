@@ -4,5 +4,5 @@ module.exports = {
       // implement node event listeners here
     },
   },
-  retries: { runMode: 3, openMode: 3 },
+  // retries: { runMode: 3, openMode: 3 },
 };

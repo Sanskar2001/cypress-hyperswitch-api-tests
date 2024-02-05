@@ -5,9 +5,9 @@
     "payment_method_data": {
       "card": {
         "card_number": "YourCardNumberHere",  
-        "card_exp_month": "01",
-        "card_exp_year": "28",
-        "card_holder_name": "",
+        "card_exp_month": "04",
+        "card_exp_year": "24",
+        "card_holder_name": "xyz",
         "card_cvc": "424",
         "card_issuer": "",
         "card_network": "Visa"
